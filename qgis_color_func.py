@@ -36,9 +36,9 @@ def conversion(table_path, output_path):
 
     # Create the output table
     with open(output_path, 'w') as output_table:
-        qml_header = open("qml_form.txt", "r")
+        qml_header = open("qml_form", "r")
 
-        # Write the header as first 5 lines from the qml_form.txt
+        # Write the header as first 5 lines from the qml_form file
         for i in range(5):
             output_table.write(qml_header.readline())
 
