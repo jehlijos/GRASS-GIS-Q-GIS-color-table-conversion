@@ -1,4 +1,4 @@
-# GRASS GIS/Q GIS color table conversion
- 
-Is it possible to set aplha in grass table ??
-How to define "nv" and "default" in QML ??
+# GRASS GIS/Q GIS color table conversion BACKUP
+
+ ORIGINAL REPOSITORY:
+https://github.com/ctu-fgis/2024-b-grass-qgis-colors-convert
