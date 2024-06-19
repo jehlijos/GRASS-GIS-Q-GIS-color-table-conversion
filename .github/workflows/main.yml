@@ -10,6 +10,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: List directory contents
+      run: ls -R
+
     - name: Set up QGIS
       run: |
         sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
@@ -27,4 +30,4 @@ jobs:
         pip install pytest pytest-qt PyQt5
 
     - name: Run tests
-      run: pytest src/test/test_qgis_color.py
+      run: pytest test/test_qgis_color.py
