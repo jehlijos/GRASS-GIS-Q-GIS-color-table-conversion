@@ -40,7 +40,10 @@ jobs:
         export LD_LIBRARY_PATH="${QGIS_PREFIX_PATH}/lib"
         export QGIS_DEBUG=0
         export QGIS_LOG_FILE=/dev/null
-        python3 -c "from qgis.testing import unittest; unittest.initQgis()"
+        # Install qgis.testing module
+        pip install qgis
 
     - name: Run tests
-      run: pytest test/test_qgis_color_func.py
+      run: |
+        export PYTHONPATH="${PYTHONPATH}:${QGIS_PREFIX_PATH}/python"
+        pytest test/test_qgis_color_func.py
