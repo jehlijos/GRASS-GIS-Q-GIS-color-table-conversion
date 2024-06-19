@@ -6,6 +6,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      QGIS_PREFIX_PATH: "/usr/share/qgis"
+      PYTHONPATH: "${PYTHONPATH}:${QGIS_PREFIX_PATH}/python"
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -30,4 +34,6 @@ jobs:
         pip install pytest pytest-qt PyQt5
 
     - name: Run tests
-      run: pytest test/test_qgis_color_func.py
+      run: |
+        export PYTHONPATH="${PYTHONPATH}:${QGIS_PREFIX_PATH}/python"
+        pytest test/test_qgis_color_func.py
