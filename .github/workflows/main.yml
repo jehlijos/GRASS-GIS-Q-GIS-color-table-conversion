@@ -30,4 +30,4 @@ jobs:
         pip install pytest pytest-qt PyQt5
 
     - name: Run tests
-      run: pytest test/test_qgis_color.py
+      run: pytest test/test_qgis_color_func.py
