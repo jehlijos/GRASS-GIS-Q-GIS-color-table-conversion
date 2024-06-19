@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/GRASS_GIS_Color_Table_Import" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>
