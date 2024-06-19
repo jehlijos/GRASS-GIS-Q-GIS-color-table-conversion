@@ -7,9 +7,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      QGIS_VERSION: '3.34' 
+      QGIS_VERSION: '3.34'  
+      PYTHON_VERSION: '3.9'   
       QGIS_PREFIX_PATH: '/usr'
-      PYTHONPATH: '${PYTHONPATH}:${QGIS_PREFIX_PATH}/share/qgis/python'
+      PYTHONPATH: '${QGIS_PREFIX_PATH}/share/qgis/python'
 
     steps:
     - name: Checkout repository
@@ -21,8 +22,8 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y qgis python3-qgis qgis-plugin-grass
 
-        python3 -m pip install --upgrade pip
-        pip install pytest pytest-qt PyQt5
+        python${PYTHON_VERSION} -m pip install --upgrade pip
+        pip${PYTHON_VERSION} install pytest pytest-qt PyQt5
 
     - name: Set up QGIS environment variables
       run: |
@@ -33,7 +34,7 @@ jobs:
         export QGIS_LOG_FILE=/dev/null
 
     - name: Initialize QGIS
-      run: python3 -c "from qgis.core import QgsApplication; QgsApplication.setPrefixPath('${QGIS_PREFIX_PATH}', True); QgsApplication.initQgis()"
+      run: python${PYTHON_VERSION} -c "from qgis.core import QgsApplication; QgsApplication.setPrefixPath('${QGIS_PREFIX_PATH}', True); QgsApplication.initQgis()"
 
     - name: Run tests
       run: pytest test/test_qgis_color_func.py
