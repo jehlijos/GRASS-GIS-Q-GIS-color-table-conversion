@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 import tempfile
 import filecmp
+import difflib
 
 from qgis.core import QgsRasterLayer
 import pytest
@@ -179,15 +180,6 @@ def test_OutputFile():
 
     # Create the full path to the file
     CORINE_file_path = target_dir / filename
-
-    # Compare the output table with the reference table
-    with open(Tempfile, 'r') as gen_file:
-        gen_content = gen_file.read()
-    with open(CORINE_file_path, 'r') as ref_file:
-        ref_content = ref_file.read()
-
-    print("Generated QML content:\n", gen_content)
-    print("Reference QML content:\n", ref_content)
 
     # Print detailed differences
     import difflib
