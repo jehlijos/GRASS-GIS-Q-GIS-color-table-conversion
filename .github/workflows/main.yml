@@ -45,10 +45,10 @@ jobs:
         ls -R $GITHUB_WORKSPACE/test
 
     - name: Run tests
-      env:
-        QGIS_PREFIX_PATH: /usr
-        PYTHONPATH: /usr/share/qgis/python:$GITHUB_WORKSPACE
-        LD_LIBRARY_PATH: /usr/lib
-        QGIS_DEBUG: 0
-        QGIS_LOG_FILE: /dev/null
-      run: pytest test/test_qgis_color_func.py
+      run: |
+        export QGIS_PREFIX_PATH="/usr"
+        export PYTHONPATH="/usr/share/qgis/python:$GITHUB_WORKSPACE"
+        export LD_LIBRARY_PATH="/usr/lib"
+        export QGIS_DEBUG=0
+        export QGIS_LOG_FILE=/dev/null
+        pytest test/test_qgis_color_func.py
