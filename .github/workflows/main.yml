@@ -21,20 +21,28 @@ jobs:
         sudo add-apt-repository -y ppa:ubuntugis/ppa
         sudo apt-get update
         sudo apt-get install -y qgis python3-qgis qgis-plugin-grass
-
         python${PYTHON_VERSION} -m pip install --upgrade pip
         pip${PYTHON_VERSION} install pytest pytest-qt PyQt5
 
     - name: Set up QGIS environment variables
       run: |
-        export PYTHONPATH="${PYTHONPATH}:${QGIS_PREFIX_PATH}/share/qgis/python"
         export QGIS_PREFIX_PATH="/usr"
+        export PYTHONPATH="${QGIS_PREFIX_PATH}/share/qgis/python"
         export LD_LIBRARY_PATH="${QGIS_PREFIX_PATH}/lib"
         export QGIS_DEBUG=0
         export QGIS_LOG_FILE=/dev/null
+        echo "QGIS_PREFIX_PATH=${QGIS_PREFIX_PATH}"
+        echo "PYTHONPATH=${PYTHONPATH}"
+        echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}"
+    
+    - name: Verify QGIS and Python Installation
+      run: |
+        qgis --version
+        python${PYTHON_VERSION} --version
 
-    - name: Initialize QGIS
-      run: python${PYTHON_VERSION} -c "from qgis.core import QgsApplication; QgsApplication.setPrefixPath('${QGIS_PREFIX_PATH}', True); QgsApplication.initQgis()"
+    - name: Debug QGIS Initialization
+      run: |
+        python${PYTHON_VERSION} -X faulthandler -c "from qgis.core import QgsApplication; QgsApplication.setPrefixPath('${QGIS_PREFIX_PATH}', True); QgsApplication.initQgis()"
 
     - name: Run tests
       run: pytest test/test_qgis_color_func.py
