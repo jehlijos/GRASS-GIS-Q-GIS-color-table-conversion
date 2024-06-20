@@ -6,12 +6,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    env:
-      QGIS_VERSION: '3.34'
-      PYTHON_VERSION: '3.10'
-      QGIS_PREFIX_PATH: '/usr'
-      PYTHONPATH: '${QGIS_PREFIX_PATH}/share/qgis/python'
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -25,23 +19,36 @@ jobs:
         python3.10 -m pip install --upgrade pip
         python3.10 -m pip install pytest pytest-qt PyQt6
         sudo apt-get install -y gdb
-        
+
     - name: Set up QGIS environment variables
       run: |
-        export QGIS_PREFIX_PATH="/usr"
-        export PYTHONPATH="${QGIS_PREFIX_PATH}/share/qgis/python:${GITHUB_WORKSPACE}"
-        export LD_LIBRARY_PATH="${QGIS_PREFIX_PATH}/lib"
-        export QGIS_DEBUG=0
-        export QGIS_LOG_FILE=/dev/null
-        echo "QGIS_PREFIX_PATH=${QGIS_PREFIX_PATH}"
-        echo "PYTHONPATH=${PYTHONPATH}"
-        echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}"
+        echo "QGIS_PREFIX_PATH=/usr" >> $GITHUB_ENV
+        echo "PYTHONPATH=/usr/share/qgis/python:$GITHUB_WORKSPACE" >> $GITHUB_ENV
+        echo "LD_LIBRARY_PATH=/usr/lib" >> $GITHUB_ENV
+        echo "QGIS_DEBUG=0" >> $GITHUB_ENV
+        echo "QGIS_LOG_FILE=/dev/null" >> $GITHUB_ENV
+
     - name: Verify QGIS and Python Installation
       run: |
         qgis --version
         python3.10 --version
+
     - name: Debug QGIS Initialization with GDB
       run: |
-        gdb -ex "run" -ex "bt" --args python3.10 -c "from qgis.core import QgsApplication; QgsApplication.setPrefixPath('${QGIS_PREFIX_PATH}', True); QgsApplication.initQgis()"
+        gdb -ex "run" -ex "bt" --args python3.10 -c "from qgis.core import QgsApplication; QgsApplication.setPrefixPath('/usr', True); QgsApplication.initQgis()"
+
+    - name: List directory contents
+      run: |
+        echo "Contents of the repository root:"
+        ls -R $GITHUB_WORKSPACE
+        echo "Contents of the test directory:"
+        ls -R $GITHUB_WORKSPACE/test
+
     - name: Run tests
+      env:
+        QGIS_PREFIX_PATH: /usr
+        PYTHONPATH: /usr/share/qgis/python:$GITHUB_WORKSPACE
+        LD_LIBRARY_PATH: /usr/lib
+        QGIS_DEBUG: 0
+        QGIS_LOG_FILE: /dev/null
       run: pytest test/test_qgis_color_func.py
