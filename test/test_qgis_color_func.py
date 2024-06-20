@@ -195,13 +195,6 @@ def test_OutputFile():
         print("Differences found:\n", diff_str)
     else:
         print("No differences found.")
-        
-    # Print detailed differences
-    import difflib
-    gen_lines = gen_content.splitlines(keepends=True)
-    ref_lines = ref_content.splitlines(keepends=True)
-    diff = difflib.unified_diff(gen_lines, ref_lines, fromfile='generated', tofile='reference')
-    print(''.join(diff))
 
     assert filecmp.cmp(Tempfile, CORINE_file_path, shallow=False)
 
