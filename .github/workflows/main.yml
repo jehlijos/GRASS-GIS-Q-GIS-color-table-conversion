@@ -22,8 +22,8 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y qgis python3.10 python3.10-dev python3-pip
         sudo apt-get install -y qgis-plugin-grass
-        python3.8 -m pip install --upgrade pip
-        python3.8 -m pip install pytest pytest-qt PyQt6
+        python3.10 -m pip install --upgrade pip
+        python3.10 -m pip install pytest pytest-qt PyQt6
         sudo apt-get install -y gdb
         
     - name: Set up QGIS environment variables
@@ -40,7 +40,7 @@ jobs:
     - name: Verify QGIS and Python Installation
       run: |
         qgis --version
-        python3.8 --version
+        python3.10 --version
 
     - name: Debug QGIS Initialization with GDB
       run: |
