@@ -181,6 +181,21 @@ def test_OutputFile():
     # Create the full path to the file
     CORINE_file_path = target_dir / filename
 
+    with open(Tempfile, 'r') as gen_file:
+        gen_content = gen_file.read()
+    with open(CORINE_file_path, 'r') as ref_file:
+        ref_content = ref_file.read()
+
+    # Compare content line by line
+    gen_lines = gen_content.splitlines(keepends=True)
+    ref_lines = ref_content.splitlines(keepends=True)
+    diff = difflib.unified_diff(gen_lines, ref_lines, fromfile='generated', tofile='reference')
+    diff_str = ''.join(diff)
+    if diff_str:
+        print("Differences found:\n", diff_str)
+    else:
+        print("No differences found.")
+        
     # Print detailed differences
     import difflib
     gen_lines = gen_content.splitlines(keepends=True)
