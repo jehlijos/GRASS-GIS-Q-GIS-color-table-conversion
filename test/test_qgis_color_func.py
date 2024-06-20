@@ -181,8 +181,21 @@ def test_OutputFile():
     CORINE_file_path = target_dir / filename
 
     # Compare the output table with the reference table
-    print("Generated file matches the reference file (corine): ",
-          filecmp.cmp(Tempfile, CORINE_file_path, shallow=False))
+    with open(Tempfile, 'r') as gen_file:
+        gen_content = gen_file.read()
+    with open(CORINE_file_path, 'r') as ref_file:
+        ref_content = ref_file.read()
+
+    print("Generated QML content:\n", gen_content)
+    print("Reference QML content:\n", ref_content)
+
+    # Print detailed differences
+    import difflib
+    gen_lines = gen_content.splitlines(keepends=True)
+    ref_lines = ref_content.splitlines(keepends=True)
+    diff = difflib.unified_diff(gen_lines, ref_lines, fromfile='generated', tofile='reference')
+    print(''.join(diff))
+
     assert filecmp.cmp(Tempfile, CORINE_file_path, shallow=False)
 
     # Clean up
