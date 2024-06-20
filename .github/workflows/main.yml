@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      QGIS_VERSION: '3.34'  
-      PYTHON_VERSION: '3.10'   
+      QGIS_VERSION: '3.28'  
+      PYTHON_VERSION: '3.9'   
       QGIS_PREFIX_PATH: '/usr'
       PYTHONPATH: '${QGIS_PREFIX_PATH}/share/qgis/python'
 
@@ -21,8 +21,9 @@ jobs:
         sudo add-apt-repository -y ppa:ubuntugis/ppa
         sudo apt-get update
         sudo apt-get install -y qgis python3-qgis qgis-plugin-grass
+        sudo apt-get install -y python${PYTHON_VERSION} python${PYTHON_VERSION}-dev python3-pip
         python${PYTHON_VERSION} -m pip install --upgrade pip
-        pip${PYTHON_VERSION} install pytest pytest-qt PyQt5
+        python${PYTHON_VERSION} -m pip install pytest pytest-qt PyQt5
 
     - name: Set up QGIS environment variables
       run: |
