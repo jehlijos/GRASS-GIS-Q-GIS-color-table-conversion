@@ -28,21 +28,6 @@ jobs:
         echo "QGIS_DEBUG=0" >> $GITHUB_ENV
         echo "QGIS_LOG_FILE=/dev/null" >> $GITHUB_ENV
 
-    - name: Verify QGIS and Python Installation
-      run: |
-        qgis --version
-        python3.10 --version
-
-    - name: Debug QGIS Initialization with GDB
-      run: |
-        gdb -ex "run" -ex "bt" --args python3.10 -c "from qgis.core import QgsApplication; QgsApplication.setPrefixPath('/usr', True); QgsApplication.initQgis()"
-
-    - name: List directory contents
-      run: |
-        echo "Contents of the repository root:"
-        ls -R $GITHUB_WORKSPACE
-        echo "Contents of the test directory:"
-        ls -R $GITHUB_WORKSPACE/test
 
     - name: Run tests
       run: |
