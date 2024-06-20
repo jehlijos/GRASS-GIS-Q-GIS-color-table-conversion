@@ -29,22 +29,19 @@ jobs:
     - name: Set up QGIS environment variables
       run: |
         export QGIS_PREFIX_PATH="/usr"
-        export PYTHONPATH="${QGIS_PREFIX_PATH}/share/qgis/python"
+        export PYTHONPATH="${QGIS_PREFIX_PATH}/share/qgis/python:${GITHUB_WORKSPACE}"
         export LD_LIBRARY_PATH="${QGIS_PREFIX_PATH}/lib"
         export QGIS_DEBUG=0
         export QGIS_LOG_FILE=/dev/null
         echo "QGIS_PREFIX_PATH=${QGIS_PREFIX_PATH}"
         echo "PYTHONPATH=${PYTHONPATH}"
         echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}"
-
     - name: Verify QGIS and Python Installation
       run: |
         qgis --version
         python3.10 --version
-
     - name: Debug QGIS Initialization with GDB
       run: |
-        gdb -ex "run" -ex "bt" --args python3.8 -c "from qgis.core import QgsApplication; QgsApplication.setPrefixPath('${QGIS_PREFIX_PATH}', True); QgsApplication.initQgis()"
-
+        gdb -ex "run" -ex "bt" --args python3.10 -c "from qgis.core import QgsApplication; QgsApplication.setPrefixPath('${QGIS_PREFIX_PATH}', True); QgsApplication.initQgis()"
     - name: Run tests
       run: pytest test/test_qgis_color_func.py
