@@ -6,4 +6,4 @@
 <br>
 QGIS plugin to load predefined or custom GRASS GIS raster color tables.
 > [!NOTE]  
-> At this version plugin correctly transforms only tables for rasters with absolute values (like Corine Land Cover). To tables with percentual values are assinged absolute values.
+> At this version plugin correctly transforms only tables for rasters with absolute values (like Corine Land Cover). <br> To tables with percentual values are assinged absolute values.
