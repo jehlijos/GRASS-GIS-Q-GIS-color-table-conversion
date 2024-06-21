@@ -19,14 +19,14 @@ use video tutorial below <br>
 - Select your raster file from workspace layers or import it from file. <br>
   ![1](https://github.com/jehlijos/josef-jehlicka/blob/main/schoolwork/FGISPHOTO/1.png?raw=true) <br><br>
 
-  - Select predefined GRASS color table.
+- Select predefined GRASS color table.  <br>
   ![2](https://github.com/jehlijos/josef-jehlicka/blob/main/schoolwork/FGISPHOTO/2.png?raw=true) <br><br>
 
-- Or select custom GRASS color table from file.
+- Or select custom GRASS color table from file.  <br>
   ![3](https://github.com/jehlijos/josef-jehlicka/blob/main/schoolwork/FGISPHOTO/3.png?raw=true) <br><br>
 
-- Preferably save created QGIS table to .qml file: 
+- Preferably save created QGIS table to .qml file.  <br>
   ![4](https://github.com/jehlijos/josef-jehlicka/blob/main/schoolwork/FGISPHOTO/4.png?raw=true) <br><br>
 
-- Click run to apply the color table: 
+- Click run to apply the color table.  <br>
   ![3](https://github.com/jehlijos/josef-jehlicka/blob/main/schoolwork/FGISPHOTO/3.png?raw=true) <br><br>
