@@ -4,3 +4,4 @@
 <br>
 ![plugin icon](https://github.com/jehlijos/GRASS-GIS-Q-GIS-color-table-conversion-BACKUP/blob/main/icon.png?raw=true)
 <br>
+QGIS plugin to load predefined or custom GRASS GIS raster color tables.
