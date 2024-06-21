@@ -8,6 +8,9 @@
 QGIS plugin to load predefined or custom GRASS GIS raster color tables.
 > [!NOTE]  
 > At this version plugin correctly transforms only tables for rasters with absolute values (like Corine Land Cover). <br> To tables with percentual values are assinged absolute values.
+
+## Table of contents
+
 ## How to install QGIS plugin
 - clone this repository:
 ```
@@ -31,3 +34,10 @@ use video tutorial below <br>
 
 - Click run to apply the color table.  <br>
   ![3](https://github.com/jehlijos/josef-jehlicka/blob/main/schoolwork/FGISPHOTO/3.png?raw=true) <br><br>
+
+## Important Files description <br>
+- [qgis_color_func.py] - python file with function](https://github.com/ctu-fgis/2024-b-grass-qgis-colors-convert/blob/master/qgis_color_func.py) that generates QML file from GRASS table file. <br>
+- [GRASS_GIS_Color_Table_Import_dockwidget_base.ui](https://github.com/ctu-fgis/2024-b-grass-qgis-colors-convert/blob/master/GRASS_GIS_Color_Table_Import_dockwidget_base.ui) - Qt Designer user interferce file. <br>
+- [GRASS_GIS_Color_Table_Import_dockwidget.py](https://github.com/ctu-fgis/2024-b-grass-qgis-colors-convert/blob/master/GRASS_GIS_Color_Table_Import_dockwidget.py) - Partly generated file to add functions to widgets in user interface <br>
+- [test/test_qgis_color_func.py](https://github.com/ctu-fgis/2024-b-grass-qgis-colors-convert/blob/master/test/test_qgis_color_func.py) - test to generate Corine QML table and compare it wwith reference. <br>
+
