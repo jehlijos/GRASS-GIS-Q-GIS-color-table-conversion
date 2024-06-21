@@ -15,3 +15,6 @@ git clone https://github.com/ctu-fgis/2024-b-grass-qgis-colors-convert
 - add to QGIS: <br>
 use video tutorial below <br>
   [![youtube video tutorial](https://i.ytimg.com/vi/AUQouvFyt34/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhsIGwobDAP&rs=AOn4CLBc6EpmZSbGvff1br8hww-28XBWmg)](https://www.youtube.com/watch?v=AUQouvFyt34)
+## How to use plugin
+- Select your raster file from workspace layers or import it from file.
+  ![1](https://github.com/jehlijos/josef-jehlicka/blob/main/schoolwork/FGISPHOTO/1.png?raw=true)
