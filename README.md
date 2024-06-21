@@ -16,5 +16,17 @@ git clone https://github.com/ctu-fgis/2024-b-grass-qgis-colors-convert
 use video tutorial below <br>
   [![youtube video tutorial](https://i.ytimg.com/vi/AUQouvFyt34/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhsIGwobDAP&rs=AOn4CLBc6EpmZSbGvff1br8hww-28XBWmg)](https://www.youtube.com/watch?v=AUQouvFyt34)
 ## How to use plugin
-- Select your raster file from workspace layers or import it from file.
-  ![1](https://github.com/jehlijos/josef-jehlicka/blob/main/schoolwork/FGISPHOTO/1.png?raw=true)
+- Select your raster file from workspace layers or import it from file. <br>
+  ![1](https://github.com/jehlijos/josef-jehlicka/blob/main/schoolwork/FGISPHOTO/1.png?raw=true) <br><br>
+
+  - Select predefined GRASS color table.
+  ![2](https://github.com/jehlijos/josef-jehlicka/blob/main/schoolwork/FGISPHOTO/2.png?raw=true) <br><br>
+
+- Or select custom GRASS color table from file.
+  ![3](https://github.com/jehlijos/josef-jehlicka/blob/main/schoolwork/FGISPHOTO/3.png?raw=true) <br><br>
+
+- Preferably save created QGIS table to .qml file: 
+  ![4](https://github.com/jehlijos/josef-jehlicka/blob/main/schoolwork/FGISPHOTO/4.png?raw=true) <br><br>
+
+- Click run to apply the color table: 
+  ![3](https://github.com/jehlijos/josef-jehlicka/blob/main/schoolwork/FGISPHOTO/3.png?raw=true) <br><br>
