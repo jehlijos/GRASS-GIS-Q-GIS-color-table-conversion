@@ -9,6 +9,9 @@ QGIS plugin to load predefined or custom GRASS GIS raster color tables.
 > At this version plugin correctly transforms only tables for rasters with absolute values (like Corine Land Cover). <br> To tables with percentual values are assinged absolute values.
 ## How to install QGIS plugin
 - clone this repository:
-
-- add to QGIS:
+```
+git clone https://github.com/ctu-fgis/2024-b-grass-qgis-colors-convert
+```
+- add to QGIS: <br>
+use video tutorial below <br>
   [![youtube video tutorial](https://i.ytimg.com/vi/AUQouvFyt34/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhsIGwobDAP&rs=AOn4CLBc6EpmZSbGvff1br8hww-28XBWmg)](https://www.youtube.com/watch?v=AUQouvFyt34)
